@@ -1,3 +1,4 @@
 
 *.ide-wal
 *.sqlite
+.vs/slnx.sqlite

@@ -13,3 +13,4 @@ obj/x86/Debug/MainPage.g.i.cs
 *.ide-wal
 *.ide-wal
 obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
+*.ide

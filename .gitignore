@@ -7,3 +7,6 @@ obj/x86/Debug/MainPage.g.i.cs
 obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
 *.ide
 *.sqlite
+*.sqlite
+*.ide-wal
+*.ide-shm

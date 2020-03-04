@@ -9,3 +9,4 @@ obj/x86/Debug/MainPage.g.i.cs
 *.ide-shm
 *.ide-wal
 *.ide-wal
+obj*

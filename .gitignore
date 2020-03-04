@@ -1,2 +1,10 @@
 
 .vs/Pill Popper/v16/Server/sqlite3/storage.ide-wal
+/obj/x86/Debug/App.g.i.cs
+/obj/x86/Debug/MainPage.g.i.cs
+/obj/x86/Debug/Pill Popper.csprojAssemblyReference.cache
+/obj/x86/Debug/XamlSaveStateFile.xml
+obj/x86/Debug/App.g.i.cs
+obj/x86/Debug/MainPage.g.i.cs
+*.ide-shm
+*.ide-wal

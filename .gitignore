@@ -10,5 +10,4 @@ obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
 *.sqlite
 *.ide-wal
 *.ide-shm
-.vs/Pill-Popper/v16/.suo
-.vs/slnx.sqlite
+*.vs

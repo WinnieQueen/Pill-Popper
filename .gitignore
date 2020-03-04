@@ -1,14 +1,9 @@
-
 /obj/x86/Debug/App.g.i.cs
 /obj/x86/Debug/MainPage.g.i.cs
 /obj/x86/Debug/Pill Popper.csprojAssemblyReference.cache
 /obj/x86/Debug/XamlSaveStateFile.xml
 obj/x86/Debug/App.g.i.cs
 obj/x86/Debug/MainPage.g.i.cs
-*.ide-shm
-*.ide-wal
-*.ide-wal
 obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
-*.sqlite
 *.ide
-.vs/slnx.sqlite
+*.sqlite

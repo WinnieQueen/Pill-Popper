@@ -11,3 +11,4 @@ obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
 *.ide-wal
 *.ide-shm
 *.vs
+obj*

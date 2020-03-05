@@ -12,3 +12,4 @@ obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
 *.ide-shm
 *.vs
 obj*
+.vs/slnx.sqlite

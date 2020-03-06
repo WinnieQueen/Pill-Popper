@@ -4,4 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Pill_Popper">
 
+    <Application.Resources>
+        <BitmapImage x:Key="Logo" UriSource="Images/Medicine Logo.PNG"/>
+        <BitmapImage x:Key="H_Med" UriSource="Images/Content Medicine.PNG"/>
+        <BitmapImage x:Key="M_Med" UriSource="Images/Worried Medicine.PNG"/>
+        <BitmapImage x:Key="L_Med" UriSource="Images/Dead Medicine.PNG"/>
+    </Application.Resources>
+
 </Application>

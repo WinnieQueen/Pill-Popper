@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ash\\OneDrive\\Documents\\Q6\\Principles of Software Engineering\\Pill Popper\\Pill Popper.csproj": {}
+    "C:\\Users\\Kathy Broderick\\Documents\\GitHub\\Pill-Popper\\Pill Popper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ash\\OneDrive\\Documents\\Q6\\Principles of Software Engineering\\Pill Popper\\Pill Popper.csproj": {
+    "C:\\Users\\Kathy Broderick\\Documents\\GitHub\\Pill-Popper\\Pill Popper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ash\\OneDrive\\Documents\\Q6\\Principles of Software Engineering\\Pill Popper\\Pill Popper.csproj",
+        "projectUniqueName": "C:\\Users\\Kathy Broderick\\Documents\\GitHub\\Pill-Popper\\Pill Popper.csproj",
         "projectName": "Pill Popper",
-        "projectPath": "C:\\Users\\Ash\\OneDrive\\Documents\\Q6\\Principles of Software Engineering\\Pill Popper\\Pill Popper.csproj",
-        "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ash\\OneDrive\\Documents\\Q6\\Principles of Software Engineering\\Pill Popper\\obj\\",
+        "projectPath": "C:\\Users\\Kathy Broderick\\Documents\\GitHub\\Pill-Popper\\Pill Popper.csproj",
+        "packagesPath": "C:\\Users\\Kathy Broderick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kathy Broderick\\Documents\\GitHub\\Pill-Popper\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kathy Broderick\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

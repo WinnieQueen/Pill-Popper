@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,52,0,0" Text="Pill Popper" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Snap ITC" FontSize="80*"/>
 
     </Grid>
 </Page>

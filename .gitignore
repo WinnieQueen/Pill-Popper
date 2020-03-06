@@ -12,3 +12,13 @@ obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
 *.ide-shm
 *.vs
 .vs/Pill Popper/v16/Server/sqlite3/db.lock
+obj*
+.vs/slnx.sqlite
+.vs/slnx.sqlite
+.vs/Pill-Popper/v16/.suo
+.vs/Pill-Popper/v16/.suo
+.vs/slnx.sqlite
+Pill Popper/obj*
+obj/ARM/*
+*.sqlite
+.vs/Pill Popper/v16/.suo

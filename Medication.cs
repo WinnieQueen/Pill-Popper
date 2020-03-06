@@ -11,7 +11,8 @@ namespace Pill_Popper
         string name { get; set; }
         int dosage { get; set; }
         int quantity { get; set; }
-        enum dosageType
+        DOSAGETYPE dosageType { get; set; }
+        enum DOSAGETYPE
         {
             tablet,
             puffs

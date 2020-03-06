@@ -14,3 +14,8 @@ obj/ARM/Debug/Pill Popper.csprojAssemblyReference.cache
 obj*
 .vs/slnx.sqlite
 .vs/slnx.sqlite
+.vs/Pill-Popper/v16/.suo
+.vs/Pill-Popper/v16/.suo
+.vs/slnx.sqlite
+Pill Popper/obj*
+obj/ARM/*

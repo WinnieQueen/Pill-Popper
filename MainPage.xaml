@@ -9,6 +9,37 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#FF3FFFE1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Text="Pill Popper" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="80*"/>
+        <Image Grid.Column="0" Source="{StaticResource ResourceKey=Logo_Transparent}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
 
     </Grid>
 </Page>

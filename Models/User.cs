@@ -9,7 +9,7 @@ namespace Pill_Popper.Models
     class User
     {
 
-		private List<Medication> medicines;
+		private List<Medication> medicines = new List<Medication>();
 		private String name;
 
 		public List<Medication> Medicines

@@ -47,7 +47,7 @@ namespace Pill_Popper
                 m.quantity = Int32.Parse(m_qty.Text);
             }
             catch(Exception x){
-                var messsageDialog = new MessageDialog("error");
+                var messsageDialog = new MessageDialog("Error, Please check that all boxes are filled out correctly.");
                 await messsageDialog.ShowAsync();
                 return;
             }

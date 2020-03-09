@@ -1,4 +1,5 @@
-﻿using Pill_Popper.Models;
+﻿using Newtonsoft.Json;
+using Pill_Popper.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -38,6 +39,7 @@ namespace Pill_Popper
             m.dosage = Int32.Parse(m_Dosage.Text);
             m.quantity = Int32.Parse(m_qty.Text);
 
+            user.Medicines.Add(m);
             CheckIfFileExistsAndAdd();
             this.Frame.Navigate(typeof(MedicineScreen));
         }
@@ -45,22 +47,28 @@ namespace Pill_Popper
         private async void CheckIfFileExistsAndAdd()
         {
             //Check if file exists
-            if (File.Exists(localFolder.Path + "\\PillPopperUsers.txt"))
+            if (File.Exists(localFolder.Path + "\\PillPopperUsers.json"))
             {
-                Windows.Storage.StorageFile sampleFile = await localFolder.GetFileAsync("PillPopperUsers.txt");
-                await File.AppendAllTextAsync(sampleFile.Path, $"{user.Name}-{user.Medicines}-");
-                //String fileContent = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+                //If it exists add to the list.
+                Windows.Storage.StorageFile jsonFile = await localFolder.GetFileAsync("PillPopperUsers.json");
+                var jsonContent = await Windows.Storage.FileIO.ReadTextAsync(jsonFile);
+                List<User> users = JsonConvert.DeserializeObject<List<User>>(jsonContent);
+                AddUserToFile(users);
             }
             else
             {
                 //File does not exist. Create it.
-                Windows.Storage.StorageFile file = await localFolder.CreateFileAsync("PillPopperUsers.txt");
-                if (user.Name != null && user.Name.Trim().Length > 0)
-                {
-                    await Windows.Storage.FileIO.WriteTextAsync(file, $"{user.Name}-{user.Medicines}-");
-                }
+                Windows.Storage.StorageFile jsonFile = await localFolder.CreateFileAsync("PillPopperUsers.json");
+                AddUserToFile(new List<User>());
             }
 
+        }
+
+        private async void AddUserToFile(List<User> users)
+        {
+            users.Add(user);
+            Windows.Storage.StorageFile jsonFile = await localFolder.GetFileAsync("PillPopperUsers.json");
+            await Windows.Storage.FileIO.WriteTextAsync(jsonFile, JsonConvert.SerializeObject(users));
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

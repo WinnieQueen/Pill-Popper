@@ -40,7 +40,6 @@ namespace Pill_Popper
             if (File.Exists(localFolder.Path + "\\PillPopperUsers.json"))
             {
                 //Get the File
-                List<User> users = new List<User>();
                 Windows.Storage.StorageFile jsonFile = await localFolder.GetFileAsync("PillPopperUsers.json");
                 var jsonContent = await Windows.Storage.FileIO.ReadTextAsync(jsonFile);
                 users = JsonConvert.DeserializeObject<List<User>>(jsonContent);
@@ -94,9 +93,9 @@ namespace Pill_Popper
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             HyperlinkButton hyperBtn = sender as HyperlinkButton;
-            int col = Grid.GetColumn(hyperBtn);
-            int row = Grid.GetRow(hyperBtn);
-            this.Frame.Navigate(typeof(MedicineScreen));
+            int index = Int32.Parse(hyperBtn.Name);
+            User u = users[index];
+            this.Frame.Navigate(typeof(MedicineScreen), u);
         }
 
         private void Add_User_Click(object sender, RoutedEventArgs e)

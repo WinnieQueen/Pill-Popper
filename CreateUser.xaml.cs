@@ -41,7 +41,7 @@ namespace Pill_Popper
 
             user.Medicines.Add(m);
             CheckIfFileExistsAndAdd();
-            this.Frame.Navigate(typeof(MedicineScreen));
+            this.Frame.Navigate(typeof(MedicineScreen), user);
         }
 
         private async void CheckIfFileExistsAndAdd()

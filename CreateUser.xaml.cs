@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -34,10 +35,23 @@ namespace Pill_Popper
 
         private async void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            user.Name = NameInput.Text;
-            m.name = m_Name.Text;
-            m.dosage = Int32.Parse(m_Dosage.Text);
-            m.quantity = Int32.Parse(m_qty.Text);
+            try
+            {
+                user.Name = NameInput.Text;
+                m.name = m_Name.Text;
+            
+                if(user.Name == "" || m.name == "")
+                {
+                    throw new System.Exception();
+                }
+                m.dosage = Int32.Parse(m_Dosage.Text);
+                m.quantity = Int32.Parse(m_qty.Text);
+            }
+            catch(Exception x){
+                var messsageDialog = new MessageDialog("error");
+                await messsageDialog.ShowAsync();
+                return;
+            }
 
             user.Medicines.Add(m);
             CheckIfFileExistsAndAdd();

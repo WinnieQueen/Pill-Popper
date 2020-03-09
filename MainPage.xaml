@@ -9,6 +9,38 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#FF3FFFE1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Text="Pill Popper" TextWrapping="NoWrap"  VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="70*"/>
+        <Image Grid.Column="0" Source="{StaticResource ResourceKey=Logo_Transparent}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5"/>
+        </Grid>
+        <Grid x:Name="UsersGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <HyperlinkButton x:Name="Add_User" Content="Add User" Grid.Column="5" Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FFDED5D5" FontFamily="Snap ITC" FontSize="36" BorderBrush="#FF3FFFE1" BorderThickness="2" Click="Add_User_Click"/>
+        </Grid>
 
     </Grid>
 </Page>

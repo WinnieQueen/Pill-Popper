@@ -25,6 +25,7 @@ namespace Pill_Popper
     {
         Windows.Storage.StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
         User user = new User();
+        Medication m = new Medication();
         public CreateUser()
         {
             this.InitializeComponent();
@@ -33,11 +34,15 @@ namespace Pill_Popper
         private async void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             user.Name = NameInput.Text;
-            CheckIfFileExists();
+            m.name = m_Name.Text;
+            m.dosage = Int32.Parse(m_Dosage.Text);
+            m.quantity = Int32.Parse(m_qty.Text);
+
+            CheckIfFileExistsAndAdd();
             this.Frame.Navigate(typeof(MedicineScreen));
         }
 
-        private async void CheckIfFileExists()
+        private async void CheckIfFileExistsAndAdd()
         {
             //Check if file exists
             if (File.Exists(localFolder.Path + "\\PillPopperUsers.txt"))
@@ -56,6 +61,12 @@ namespace Pill_Popper
                 }
             }
 
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            //m.dosageType = Enum.Parse(Medication.DOSAGETYPE, rb.Tag.ToString());
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Pill_Popper
 {
     class Medication
     {
-        string name { get; set; }
-        int dosage { get; set; }
-        int quantity { get; set; }
-        DOSAGETYPE dosageType { get; set; }
-        enum DOSAGETYPE
+        public string name { get; set; }
+        public int dosage { get; set; }
+        public int quantity { get; set; }
+        public DOSAGETYPE dosageType { get; set; }
+        public enum DOSAGETYPE
         {
             tablet,
             puffs

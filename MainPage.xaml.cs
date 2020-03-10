@@ -1,6 +1,7 @@
 ﻿using Pill_Popper.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,6 +31,7 @@ namespace Pill_Popper
         {
             this.InitializeComponent();
 
+            Debug.WriteLine(System.DateTime.Now.ToLocalTime().TimeOfDay);
             getUsers();
         }
 

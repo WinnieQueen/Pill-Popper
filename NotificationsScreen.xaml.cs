@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,20 @@ namespace Pill_Popper
     /// </summary>
     public sealed partial class NotificationsScreen : Page
     {
+        private List<MedAlarm> alarms = new List<MedAlarm>();
+
         public NotificationsScreen()
         {
             this.InitializeComponent();
+        }
+
+        private static void AddAlarm(double timeToTake, Medicine med)
+        {
+            if(timeToTake <= 0 || timeToTake > 24)
+            {
+                Debug.WriteLine( System.DateTime.Now);
+                throw new Exception("TimeToTake cannot be lower than 0 or greater than 24. Use decimals to show minutes (ie 12.30 for 12:30)");
+            }
         }
     }
 }

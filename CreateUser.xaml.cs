@@ -44,8 +44,9 @@ namespace Pill_Popper
                 {
                     throw new System.Exception();
                 }
-                m.dosage = Int32.Parse(m_Dosage.Text);
-                m.quantity = Int32.Parse(m_qty.Text);
+                m.dosagePerDay = Int32.Parse(m_DosPDay.Text);
+                m.quantity = Int32.Parse(m_Qty.Text);
+                m.dosageQty = Int32.Parse(m_QtyPDos.Text);
             }
             catch(Exception x){
                 var messsageDialog = new MessageDialog("Error, Please check that all boxes are filled out correctly.");

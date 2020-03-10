@@ -9,17 +9,12 @@ namespace Pill_Popper
     class Medication
     {
         public string name { get; set; }
-        public int dosage { get; set; }
+        public int dosagePDay { get; set; }
         public int quantity { get; set; }
-        public DOSAGETYPE dosageType { get; set; }
-        public enum DOSAGETYPE
-        {
-            tablet,
-            puffs
-        }
+        public int qtyPDose { get; set; }
         public void takeMed()
         {
-            quantity -= dosage;
+            quantity -= qtyPDose;
         }
     }
 }

@@ -119,7 +119,6 @@ namespace Pill_Popper
             }
             else
             {
-                //user.Medicines[selected].takeMed();
                 selected.takeMed();
                 for (int i = 0; i < user.Medicines.Count; i++)
                 {

@@ -43,10 +43,7 @@ namespace Pill_Popper
             }
             base.OnNavigatedTo(e);
             medList.ItemsSource = user.Medicines;
-            Notifier.setupTimer();
-            Notifier.startTimer();
-            Notifier.setUser(user);
-            Notifier.checkMedQuantities();
+            Notifier.InitialSetup(user);
         }
 
 

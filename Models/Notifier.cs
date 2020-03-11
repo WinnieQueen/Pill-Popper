@@ -56,6 +56,14 @@ namespace Pill_Popper.Models
             }
         }
 
+        public static void InitialSetup(User user)
+        {
+            Notifier.setupTimer();
+            Notifier.startTimer();
+            Notifier.setUser(user);
+            Notifier.checkMedQuantities();
+        }
+
         public static void checkMedQuantities()
         {
             bool medsAreFull = false;

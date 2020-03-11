@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pill_Popper.Models
 {
-    class User
+    public class User
     {
 
 		private List<Medication> medicines = new List<Medication>();

@@ -41,5 +41,10 @@ namespace Pill_Popper
             base.OnNavigatedTo(e);
         }
 
+        public List<Medication> getUserMeds()
+        {
+            return user.Medicines;
+        }
+
     }
 }

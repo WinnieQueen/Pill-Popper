@@ -9,8 +9,26 @@ using Windows.UI.Notifications;
 
 namespace Pill_Popper
 {
-    class MedAlarm
+    public class MedAlarm
     {
-        
+        private DateTime timeToTake = new DateTime();
+        private Medication medToTake = new Medication();
+
+        public MedAlarm(string time, Medication med)
+        {
+            timeToTake = DateTime.Parse(time);
+            medToTake = new Medication();
+        }
+
+        public string GetTimeToTake()
+        {
+            return timeToTake.ToString("HH:mm");
+        }
+
+        public Medication GetMedToTake()
+        {
+            return medToTake;
+        }
+
     }
 }

@@ -23,7 +23,7 @@ namespace Pill_Popper
     /// </summary>
     public sealed partial class NotificationsScreen : Page
     {
-        private List<MedAlarm> alarms = new List<MedAlarm>();
+        private static List<MedAlarm> alarms = new List<MedAlarm>();
 
         public NotificationsScreen()
         {
@@ -40,12 +40,13 @@ namespace Pill_Popper
             try
             {
                 DateTime.Parse(timeToTake);
+                Debug.WriteLine(System.DateTime.Now.ToLocalTime().TimeOfDay.ToString("HH:mm"));
+                alarms.Add(new MedAlarm(timeToTake, med));
             }
             catch (Exception e)
             {
                 throw new ArgumentException("TimeToTake has to follow the format of a DateTime, such as: HH:mm");
             }
-            Debug.WriteLine(System.DateTime.Now.ToLocalTime().TimeOfDay.ToString("HH:mm"));
         }
     }
 }

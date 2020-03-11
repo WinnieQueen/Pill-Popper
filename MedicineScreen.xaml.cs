@@ -45,6 +45,7 @@ namespace Pill_Popper
             medList.ItemsSource = user.Medicines;
             Notifier.setupTimer();
             Notifier.startTimer();
+            Notifier.setUser(user);
         }
 
 
@@ -106,6 +107,7 @@ namespace Pill_Popper
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            Notifier.stopTimer();
             this.Frame.Navigate(typeof(MainPage));
         }
     }

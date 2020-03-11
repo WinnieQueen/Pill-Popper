@@ -14,7 +14,7 @@ namespace Pill_Popper.Models
 {
     public class Notifier
     {
-        private static ObservableCollection<MedAlarm> alarms = new ObservableCollection<MedAlarm>();
+        private static User currentUser = new User();
         private static DispatcherTimer timer = new DispatcherTimer();
         public static void Notify(String message, String img)
         {
@@ -51,22 +51,40 @@ namespace Pill_Popper.Models
                         a = i - 12;
                         afterPiece = "pm";
                     }
-                    alarms.Add(new MedAlarm($"{a}:00 {afterPiece}", medication.name, medication.qtyPDose));
+                    currentUser.alarms.Add(new MedAlarm($"{a}:00 {afterPiece}", medication.name, medication.qtyPDose));
                 }
             }
+        }
+
+        public static void setUser(User user)
+        {
+            currentUser = user;
         }
 
         public static void setupTimer()
         {
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(35);
-            timer.Tick += checkIfNotify;
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += checkForChange;
+        }
+
+        public static void checkForChange(object sender, object e)
+        {
+            if (DateTime.Now.TimeOfDay.Seconds == 0)
+            {
+                Debug.WriteLine("Switched");
+                checkIfNotify(sender, e);
+                timer.Interval = TimeSpan.FromMinutes(1);
+                timer.Tick -= checkForChange;
+                timer.Tick += checkIfNotify;
+            }
         }
 
         public static void stopTimer()
         {
             timer.Stop();
         }
+
         public static void startTimer()
         {
             timer.Start();
@@ -75,7 +93,7 @@ namespace Pill_Popper.Models
         public static void checkIfNotify(object sender, object e)
         {
             Debug.WriteLine("checked");
-            foreach (MedAlarm alarm in alarms)
+            foreach (MedAlarm alarm in currentUser.alarms)
             {
                 if (alarm.GetTimeToTake() == DateTime.Now.ToLocalTime().ToString("HH:mm tt"))
                 {
@@ -86,22 +104,28 @@ namespace Pill_Popper.Models
 
         public static void clearAlarms()
         {
-            alarms.Clear();
+            currentUser.alarms.Clear();
         }
 
-        public static void deleteAlarm(MedAlarm alarm)
+        public static void deleteAlarm(string medName, int quantity, string timeToTake)
         {
-            alarms.Remove(alarm);
+            foreach (MedAlarm alarm in currentUser.alarms)
+            {
+                if (alarm.GetTimeToTake() == timeToTake && alarm.GetNumToTake() == quantity && alarm.GetMedName() == medName)
+                {
+                    currentUser.alarms.Remove(alarm);
+                }
+            }
         }
 
         public static void addAlarm(MedAlarm alarm)
         {
-            alarms.Add(alarm);
+            currentUser.alarms.Add(alarm);
         }
 
         public static void PrintAll()
         {
-            foreach (MedAlarm alarm in alarms)
+            foreach (MedAlarm alarm in currentUser.alarms)
             {
                 Debug.WriteLine($"One for {alarm.GetMedName()} will ring at {alarm.GetTimeToTake()}");
             }

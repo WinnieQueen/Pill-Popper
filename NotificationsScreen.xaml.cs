@@ -25,7 +25,7 @@ namespace Pill_Popper
     public sealed partial class NotificationsScreen : Page
     {
         private User user;
-        private static List<MedAlarm> alarms = new List<MedAlarm>();
+
 
         public NotificationsScreen()
         {

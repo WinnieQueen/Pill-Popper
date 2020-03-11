@@ -40,6 +40,11 @@ namespace Pill_Popper
             alarmList.ItemsSource = user.alarms;
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Notifier.stopTimer();
+            this.Frame.GoBack();
+        }
         private void Auto_Alarms_Click(object sender, RoutedEventArgs e)
         {
             Notifier.SetUpAutos(user.Medicines);

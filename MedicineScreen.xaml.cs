@@ -104,12 +104,6 @@ namespace Pill_Popper
             await Windows.Storage.FileIO.WriteTextAsync(jsonFile, JsonConvert.SerializeObject(users));
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            Notifier.stopTimer();
-            this.Frame.Navigate(typeof(MainPage));
-        }
-
         private void medList_ItemClick(object sender, ItemClickEventArgs e)
         {
             Medication selected = (Medication)e.ClickedItem;
@@ -144,5 +138,12 @@ namespace Pill_Popper
                 b.Content = "Cancel";
             }
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Notifier.stopTimer();
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
     }
 }

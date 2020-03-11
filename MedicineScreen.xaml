@@ -54,5 +54,6 @@
         </ListView>
         <Button x:Name="View_Alarms" Margin="20" Content="View Alarms" Background="Aqua" FontSize="30" Click="View_Alarm_Click" Grid.Row="1" VerticalAlignment="Bottom" Height="100" Width="200" />
         <Button x:Name="Delete_Meds" Margin="20" Content="Delete Meds" Background="Aqua" FontSize="30" Click="Delete_Med_Click" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100" Width="200" />
+        <Button x:Name="BackButton" Margin="20" HorizontalAlignment="Right" Content="Back" Background="Aqua" FontSize="30" Click="BackButton_Click" Grid.Row="1" VerticalAlignment="Bottom" Height="100" Width="200" />
     </Grid>
 </Page>

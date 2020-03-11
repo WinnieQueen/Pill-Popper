@@ -40,6 +40,7 @@
         <Button x:Name="Auto_Alarms" Margin="20" Content="Add Defaults" Background="Aqua" FontSize="30" Grid.Row="2" VerticalAlignment="Bottom" Height="100" Width="400" Click="Auto_Alarms_Click" />
         <Button x:Name="Add_Alarm"  Margin="20" Content="Add Alarm" Background="Aqua" FontSize="30" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100" Width="400" Click="Add_Alarm_Click" />
         <Button x:Name="Delete_Alarm"  Margin="20" Content="Delete Alarm" Background="Aqua" FontSize="30" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="100" Width="400" Click="Delete_Alarm_Click" />
+        <Button x:Name="BackButton" Foreground="Black" Margin="20" HorizontalAlignment="Right" Grid.Column="1" Content="Back" Background="Aqua" FontSize="30" Click="BackButton_Click" Grid.Row="0" VerticalAlignment="Bottom" Height="100" Width="200" />
 
     </Grid>
 </Page>

@@ -122,6 +122,7 @@ namespace Pill_Popper.Models
 
         public static void startTimer()
         {
+            Debug.WriteLine("Timer Started");
             timer.Start();
         }
 

@@ -45,6 +45,7 @@ namespace Pill_Popper
             medList.ItemsSource = user.Medicines;
             Notifier.setupTimer();
             Notifier.startTimer();
+            Notifier.setUser(user);
         }
 
 

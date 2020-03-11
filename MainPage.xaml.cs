@@ -102,29 +102,9 @@ namespace Pill_Popper
 
         private void Add_User_Click(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(CreateUser));
-            Notify("hurray am here", "Content");
+            this.Frame.Navigate(typeof(CreateUser));
         }
 
 
-        private void Notify(String message, String img)
-        {
-            // Get a toast XML template
-            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastImageAndText01);
-
-            // Fill in the text elements
-            XmlNodeList stringElements = toastXml.GetElementsByTagName("text");
-            stringElements[0].AppendChild(toastXml.CreateTextNode(message));
-
-            // Specify the absolute path to an image
-            String imagePath = "file:///" + Path.GetFullPath($"{img}Medicine.png");
-            Debug.WriteLine(imagePath);
-            XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
-            imageElements[0].AppendChild(toastXml.CreateTextNode(imagePath));
-
-            ToastNotification toast = new ToastNotification(toastXml);
-
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
-        }
     }
 }

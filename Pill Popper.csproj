@@ -120,6 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\MedAlarm.cs" />
+    <Compile Include="Models\Notifier.cs" />
     <Compile Include="NotificationsScreen.xaml.cs">
       <DependentUpon>NotificationsScreen.xaml</DependentUpon>
     </Compile>
@@ -144,9 +145,9 @@
   <ItemGroup>
     <Content Include="Images\Content Medicine.PNG" />
     <Content Include="Images\Dead Medicine.PNG" />
+    <Content Include="Images\Medicine Logo Transparent.PNG" />
     <Content Include="Images\Medicine Logo.PNG" />
     <Content Include="Images\Worried Medicine.PNG" />
-    <Content Include="Images\Medicine Logo Transparent.PNG" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

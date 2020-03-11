@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,10 @@ namespace Pill_Popper.Models
     class User
     {
 
-		private List<Medication> medicines = new List<Medication>();
+		private ObservableCollection<Medication> medicines = new ObservableCollection<Medication>();
 		private String name;
 
-		public List<Medication> Medicines
+		public ObservableCollection<Medication> Medicines
 		{
 			get { return medicines; }
 			set { medicines = value; }

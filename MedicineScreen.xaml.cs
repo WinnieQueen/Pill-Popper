@@ -28,14 +28,6 @@ namespace Pill_Popper
         {
             this.InitializeComponent();
         }
-
-
-
-
-
-
-
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null)
@@ -44,6 +36,7 @@ namespace Pill_Popper
             }
 
             base.OnNavigatedTo(e);
+            medList.ItemsSource = user.Medicines;
         }
     }
 }

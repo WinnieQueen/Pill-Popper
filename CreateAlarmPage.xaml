@@ -46,7 +46,7 @@
 
 
             <HyperlinkButton Grid.Row="4" x:Name="SaveBtn" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontFamily="Snap ITC" FontSize="20" BorderBrush="#FF3FFFE1" BorderThickness="2" Background="#FFDED5D5" Foreground="Black" Click="SaveBtn_Click" Height="70" Width="124"/>
-            <HyperlinkButton Grid.Row="4" x:Name="CancelBtn" Grid.Column="1" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontFamily="Snap ITC" FontSize="20" BorderBrush="#FF3FFFE1" BorderThickness="2" Background="#FFDED5D5" Foreground="Black" Click="CancelBtn_Click" Height="70" Width="124"/>
+            <HyperlinkButton Grid.Row="4" x:Name="CancelBtn" Grid.Column="1" Click="CancelBtn_Click" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontFamily="Snap ITC" FontSize="20" BorderBrush="#FF3FFFE1" BorderThickness="2" Background="#FFDED5D5" Foreground="Black" Height="70" Width="124"/>
 
 
         </Grid>

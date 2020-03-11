@@ -59,7 +59,7 @@ namespace Pill_Popper.Models
         public static void setupTimer()
         {
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMinutes(1);
+            timer.Interval = TimeSpan.FromSeconds(35);
             timer.Tick += checkIfNotify;
         }
 
@@ -77,7 +77,7 @@ namespace Pill_Popper.Models
             Debug.WriteLine("checked");
             foreach (MedAlarm alarm in alarms)
             {
-                if (alarm.GetTimeToTake() == DateTime.Now.ToLocalTime().ToString("HH:mm"))
+                if (alarm.GetTimeToTake() == DateTime.Now.ToLocalTime().ToString("HH:mm tt"))
                 {
                     Notify($"It's time to take {alarm.GetNumToTake()} of your {alarm.GetMedName()}!", "Medicine Logo Transparent");
                 }

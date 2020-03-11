@@ -25,6 +25,10 @@ namespace Pill_Popper
     /// </summary>
     public sealed partial class CreateAlarmPage : Page
     {
+        public CreateAlarmPage()
+        {
+            this.InitializeComponent();
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);

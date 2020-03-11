@@ -86,7 +86,7 @@ namespace Pill_Popper
 
             for(int u = 0; u < users.Count; u++)
             {
-                if(users[u].Name.Equals(user))
+                if(users[u].Name.Equals(user.Name))
                 {
 
                     users[u] = user;

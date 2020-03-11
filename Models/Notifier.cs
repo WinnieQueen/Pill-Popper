@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -16,6 +17,7 @@ namespace Pill_Popper.Models
     {
         private static User currentUser = new User();
         private static DispatcherTimer timer = new DispatcherTimer();
+        static Windows.Storage.StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
         public static void Notify(String message, String img)
         {
             String projectDirectory = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))));
@@ -54,6 +56,8 @@ namespace Pill_Popper.Models
                     currentUser.alarms.Add(new MedAlarm($"{a}:00 {afterPiece}", medication.name, medication.qtyPDose));
                 }
             }
+
+            AddToFile();
         }
 
         public static void InitialSetup(User user)
@@ -136,22 +140,26 @@ namespace Pill_Popper.Models
         public static void clearAlarms()
         {
             currentUser.alarms.Clear();
+            AddToFile();
         }
 
         public static void deleteAlarm(string medName, int quantity, string timeToTake)
         {
             foreach (MedAlarm alarm in currentUser.alarms)
             {
-                if (alarm.GetTimeToTake() == timeToTake && alarm.GetNumToTake() == quantity && alarm.GetMedName() == medName)
+                if (alarm.TimeToTake == timeToTake && alarm.NumToTake == quantity && alarm.Name == medName)
                 {
                     currentUser.alarms.Remove(alarm);
+                    break;
                 }
             }
+                    AddToFile();
         }
 
         public static void addAlarm(MedAlarm alarm)
         {
             currentUser.alarms.Add(alarm);
+            AddToFile();
         }
 
         public static void PrintAll()
@@ -160,6 +168,23 @@ namespace Pill_Popper.Models
             {
                 Debug.WriteLine($"One for {alarm.GetMedName()} will ring at {alarm.GetTimeToTake()}");
             }
+        }
+
+        private static async void AddToFile()
+        {
+            Windows.Storage.StorageFile jsonFile = await localFolder.GetFileAsync("PillPopperUsers.json");
+            var jsonContent = await Windows.Storage.FileIO.ReadTextAsync(jsonFile);
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(jsonContent);
+
+            for (int u = 0; u < users.Count; u++)
+            {
+                if (users[u].Name.Equals(currentUser.Name))
+                {
+
+                    users[u] = currentUser;
+                }
+            }
+            await Windows.Storage.FileIO.WriteTextAsync(jsonFile, JsonConvert.SerializeObject(users));
         }
     }
 }

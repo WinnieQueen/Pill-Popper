@@ -35,9 +35,14 @@ namespace Pill_Popper
 
         public MedAlarm(string time, string medName, int quantity)
         {
-            timeToTake = DateTime.Parse(time);
-            name = medName;
-            numToTake = quantity;
+            try
+            {
+                timeToTake = DateTime.Parse(time);
+                name = medName;
+                numToTake = quantity;
+
+            }
+            catch { };
         }
 
         public string GetTimeToTake()

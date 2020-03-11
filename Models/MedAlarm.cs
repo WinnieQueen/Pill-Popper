@@ -14,7 +14,21 @@ namespace Pill_Popper
         private DateTime timeToTake = new DateTime();
         private String name;
         private int numToTake;
-
+        public String TimeToTake
+        {
+            get { return timeToTake.ToString("HH:mm tt"); }
+            set { timeToTake = DateTime.Parse(value); }
+        }
+        public String Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public int NumToTake
+        {
+            get { return numToTake; }
+            set { numToTake = value; }
+        }
         public MedAlarm(string time, string medName, int quantity)
         {
             timeToTake = DateTime.Parse(time);

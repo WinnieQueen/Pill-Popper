@@ -66,22 +66,22 @@ namespace Pill_Popper.Models
 
         public static void checkMedQuantities()
         {
-            bool medsAreFull = false;
+            bool medsAreFull = true;
             foreach (Medication med in currentUser.Medicines)
             {
                 int daysLeft = med.quantity - (med.qtyPDose * med.dosagePDay);
                 if (daysLeft == 7)
                 {
+                    medsAreFull = false;
                     Notify($"You have a week's worth of {med.name} left!", "Worried Medicine");
-                } else if (daysLeft < 7)
+                }
+                else if (daysLeft < 7)
                 {
+                    medsAreFull = false;
                     Notify($"You have less than a week's worth of {med.name} left! Get some more!", "Dead Medicine");
-                } else
-                {
-                    medsAreFull = true;
                 }
             }
-            if(medsAreFull)
+            if (medsAreFull)
             {
                 Notify("All your meds are lookin good!", "Content Medicine");
             }

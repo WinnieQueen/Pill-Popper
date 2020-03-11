@@ -30,16 +30,14 @@ namespace Pill_Popper
             this.InitializeComponent();
         }
 
-        private static void AddAlarm(string timeToTake, Medicine med)
+        private static void AddAlarm(string timeToTake, Medication med)
         {
-            bool worked = true;
             try
             {
                 DateTime.Parse(timeToTake);
             }
             catch (Exception e)
             {
-                worked = false;
                 throw new ArgumentException("TimeToTake has to follow the format of a DateTime, such as: HH:mm");
             }
             Debug.WriteLine(System.DateTime.Now.ToLocalTime().TimeOfDay.ToString("HH:mm"));

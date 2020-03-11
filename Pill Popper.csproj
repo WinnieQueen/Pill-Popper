@@ -119,8 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MedAlarm.cs" />
-    <Compile Include="Medicine.cs" />
+    <Compile Include="Models\MedAlarm.cs" />
     <Compile Include="NotificationsScreen.xaml.cs">
       <DependentUpon>NotificationsScreen.xaml</DependentUpon>
     </Compile>

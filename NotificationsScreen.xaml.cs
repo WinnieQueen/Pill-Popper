@@ -30,6 +30,11 @@ namespace Pill_Popper
             this.InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+        }
+
         private static void AddAlarm(string timeToTake, Medication med)
         {
             try

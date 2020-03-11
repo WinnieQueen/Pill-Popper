@@ -6,9 +6,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -43,7 +45,7 @@ namespace Pill_Popper
                 Windows.Storage.StorageFile jsonFile = await localFolder.GetFileAsync("PillPopperUsers.json");
                 var jsonContent = await Windows.Storage.FileIO.ReadTextAsync(jsonFile);
                 users = JsonConvert.DeserializeObject<List<User>>(jsonContent);
-                if(users != null )
+                if (users != null)
                 {
                     PutOutUsers(users);
                 }
@@ -55,7 +57,7 @@ namespace Pill_Popper
             int amountOfUsers = users.Count;
             int[] primes = { 1, 3, 5 };
 
-            if(amountOfUsers > 5)
+            if (amountOfUsers > 5)
             {
                 amountOfUsers = 5;
             }
@@ -100,7 +102,29 @@ namespace Pill_Popper
 
         private void Add_User_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CreateUser));
+            //this.Frame.Navigate(typeof(CreateUser));
+            Notify("hurray am here", "Content");
+        }
+
+
+        private void Notify(String message, String img)
+        {
+            // Get a toast XML template
+            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastImageAndText01);
+
+            // Fill in the text elements
+            XmlNodeList stringElements = toastXml.GetElementsByTagName("text");
+            stringElements[0].AppendChild(toastXml.CreateTextNode(message));
+
+            // Specify the absolute path to an image
+            String imagePath = "file:///" + Path.GetFullPath($"{img}Medicine.png");
+            Debug.WriteLine(imagePath);
+            XmlNodeList imageElements = toastXml.GetElementsByTagName("image");
+            imageElements[0].AppendChild(toastXml.CreateTextNode(imagePath));
+
+            ToastNotification toast = new ToastNotification(toastXml);
+
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
     }
 }

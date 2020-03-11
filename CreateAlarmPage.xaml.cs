@@ -25,7 +25,6 @@ namespace Pill_Popper
     /// </summary>
     public sealed partial class CreateAlarmPage : Page
     {
-        User user = new User();
         public CreateAlarmPage()
         {
             this.InitializeComponent();

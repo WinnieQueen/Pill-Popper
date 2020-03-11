@@ -22,7 +22,7 @@
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" Text="Pill Popper" TextWrapping="NoWrap"  VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="70*"/>
             <Image Grid.Column="0" Source="{StaticResource ResourceKey=Logo_Transparent}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5"/>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Background="Black">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="50*"/>
@@ -35,14 +35,14 @@
             </Grid.RowDefinitions>
 
             <TextBlock Foreground="White" Text="Medication Name:" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="name" Grid.Column="1" Width="550" Height="90"/>
+            <TextBox FontSize="50" x:Name="name" Grid.Column="1" Width="550" Height="90"/>
 
             <TextBlock Foreground="White" Text="Quantity you have to take:" Grid.Row="1" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="quantity" Grid.Column="1" Grid.Row="1" Width="550" Height="90"/>
+            <TextBox FontSize="50"  x:Name="quantity" Grid.Column="1" Grid.Row="1" Width="550" Height="90"/>
 
             <TextBlock Foreground="White" Text="Time you have to take them:" Grid.Row="2" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Foreground="White" Text="Note: please type it in an HH:mm tt format (i.e., 12:34 PM)" Margin="0, 0, 0, 30" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-            <TextBox x:Name="time" Grid.Column="1" Grid.Row="2" Width="550" Height="90"/>
+            <TextBox x:Name="time" FontSize="50"  Grid.Column="1" Grid.Row="2" Width="550" Height="90"/>
 
 
             <HyperlinkButton Grid.Row="4" x:Name="SaveBtn" Content="Save" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontFamily="Snap ITC" FontSize="20" BorderBrush="#FF3FFFE1" BorderThickness="2" Background="#FFDED5D5" Foreground="Black" Click="SaveBtn_Click" Height="70" Width="124"/>

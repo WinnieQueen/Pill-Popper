@@ -51,5 +51,10 @@ namespace Pill_Popper
         {
 
         }
+        private void alarmList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            MedAlarm a = (MedAlarm) e.ClickedItem;
+            Notifier.deleteAlarm(a.Name, a.NumToTake, a.TimeToTake);
+        }
     }
 }

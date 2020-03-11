@@ -26,6 +26,7 @@ namespace Pill_Popper
     {
         private User user;
 
+        private bool deleting = false;
 
         public NotificationsScreen()
         {
@@ -35,7 +36,7 @@ namespace Pill_Popper
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            user = (User) e.Parameter;
+            user = (User)e.Parameter;
             alarmList.ItemsSource = user.alarms;
         }
 
@@ -49,12 +50,25 @@ namespace Pill_Popper
         }
         private void Delete_Alarm_Click(object sender, RoutedEventArgs e)
         {
-
+            Button b = (Button)sender;
+            if (deleting)
+            {
+                deleting = false;
+                b.Content = "Delete Alarm";
+            }
+            else
+            {
+                deleting = true;
+                b.Content = "Cancel";
+            }
         }
         private void alarmList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            MedAlarm a = (MedAlarm) e.ClickedItem;
-            Notifier.deleteAlarm(a.Name, a.NumToTake, a.TimeToTake);
+            if (deleting)
+            {
+                MedAlarm a = (MedAlarm)e.ClickedItem;
+                Notifier.deleteAlarm(a.Name, a.NumToTake, a.TimeToTake);
+            }
         }
     }
 }

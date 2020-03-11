@@ -145,7 +145,7 @@ namespace Pill_Popper.Models
 
         public static void deleteAlarm(string medName, int quantity, string timeToTake)
         {
-            foreach (MedAlarm alarm in currentUser.alarms)
+            foreach (MedAlarm alarm in currentUser.alarms.ToList())
             {
                 if (alarm.TimeToTake == timeToTake && alarm.NumToTake == quantity && alarm.Name == medName)
                 {

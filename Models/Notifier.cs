@@ -54,10 +54,6 @@ namespace Pill_Popper.Models
                     alarms.Add(new MedAlarm($"{a}:00 {afterPiece}", medication.name, medication.qtyPDose));
                 }
             }
-            foreach (MedAlarm alarm in alarms)
-            {
-                Debug.WriteLine($"It will ring at {alarm.GetTimeToTake()}");
-            }
         }
 
         public static void setupTimer()
@@ -101,6 +97,14 @@ namespace Pill_Popper.Models
         public static void addAlarm(MedAlarm alarm)
         {
             alarms.Add(alarm);
+        }
+
+        public static void PrintAll()
+        {
+            foreach (MedAlarm alarm in alarms)
+            {
+                Debug.WriteLine($"One for {alarm.GetMedName()} will ring at {alarm.GetTimeToTake()}");
+            }
         }
     }
 }

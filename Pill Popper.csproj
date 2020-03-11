@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateAlarmPage.xaml.cs">
+      <DependentUpon>CreateAlarmPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\MedAlarm.cs" />
     <Compile Include="Models\Notifier.cs" />
     <Compile Include="NotificationsScreen.xaml.cs">
@@ -162,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CreateAlarmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="NotificationsScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -25,7 +25,7 @@
         <ListView x:Name="medList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" RequestedTheme="Light" Width="1500">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <VariableSizedWrapGrid>
+                    <StackPanel>
                         <TextBlock Text="Name: " />
                         <TextBlock Text="{Binding name}" FontWeight="Bold" />
                         <TextBlock Text="Dosage Per Day: " />
@@ -34,7 +34,7 @@
                         <TextBlock Text="{Binding qtyPDose}" FontWeight="Bold" />
                         <TextBlock Text="Quantity: " />
                         <TextBlock Text="{Binding quantity}" FontWeight="Bold" />
-                    </VariableSizedWrapGrid>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

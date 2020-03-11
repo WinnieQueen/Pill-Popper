@@ -30,13 +30,19 @@ namespace Pill_Popper
             this.InitializeComponent();
         }
 
-        private static void AddAlarm(double timeToTake, Medicine med)
+        private static void AddAlarm(string timeToTake, Medicine med)
         {
-            if(timeToTake <= 0 || timeToTake > 24)
+            bool worked = true;
+            try
             {
-                Debug.WriteLine( System.DateTime.Now);
-                throw new Exception("TimeToTake cannot be lower than 0 or greater than 24. Use decimals to show minutes (ie 12.30 for 12:30)");
+                DateTime.Parse(timeToTake);
             }
+            catch (Exception e)
+            {
+                worked = false;
+                throw new ArgumentException("TimeToTake has to follow the format of a DateTime, such as: HH:mm");
+            }
+            Debug.WriteLine(System.DateTime.Now.ToLocalTime().TimeOfDay.ToString("HH:mm"));
         }
     }
 }

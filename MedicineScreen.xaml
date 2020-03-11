@@ -28,12 +28,12 @@
                     <VariableSizedWrapGrid>
                         <TextBlock Text="Name: " />
                         <TextBlock Text="{Binding name}" FontWeight="Bold" />
-                        <TextBlock Text="Dosage: " />
-                        <TextBlock Text="{Binding dosage}" FontWeight="Bold" />
+                        <TextBlock Text="Dosage Per Day: " />
+                        <TextBlock Text="{Binding dosagePDay}" FontWeight="Bold" />
+                        <TextBlock Text="Amount Per Dosage: " />
+                        <TextBlock Text="{Binding qtyPDose}" FontWeight="Bold" />
                         <TextBlock Text="Quantity: " />
                         <TextBlock Text="{Binding quantity}" FontWeight="Bold" />
-                        <TextBlock Text="Dosage: " />
-                        <TextBlock Text="{Binding dosage}" FontWeight="Bold" />
                     </VariableSizedWrapGrid>
                 </DataTemplate>
             </ListView.ItemTemplate>

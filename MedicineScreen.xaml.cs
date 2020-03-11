@@ -106,6 +106,7 @@ namespace Pill_Popper
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            Notifier.stopTimer();
             this.Frame.Navigate(typeof(MainPage));
         }
     }

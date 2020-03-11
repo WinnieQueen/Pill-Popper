@@ -102,5 +102,11 @@ namespace Pill_Popper
             }
             await Windows.Storage.FileIO.WriteTextAsync(jsonFile, JsonConvert.SerializeObject(users));
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Notifier.stopTimer();
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }

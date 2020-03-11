@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pill_Popper.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -23,6 +24,7 @@ namespace Pill_Popper
     /// </summary>
     public sealed partial class NotificationsScreen : Page
     {
+        private User user;
         private static List<MedAlarm> alarms = new List<MedAlarm>();
 
         public NotificationsScreen()
@@ -33,6 +35,8 @@ namespace Pill_Popper
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            user = (User) e.Parameter;
+            alarmList.ItemsSource = alarms;
         }
 
         private static void AddAlarm(string timeToTake, Medication med)
@@ -41,12 +45,25 @@ namespace Pill_Popper
             {
                 DateTime.Parse(timeToTake);
                 Debug.WriteLine(System.DateTime.Now.ToLocalTime().TimeOfDay.ToString("HH:mm"));
-                alarms.Add(new MedAlarm(timeToTake, med));
+                alarms.Add(new MedAlarm(timeToTake, med.name, med.qtyPDose));
             }
             catch (Exception e)
             {
                 throw new ArgumentException("TimeToTake has to follow the format of a DateTime, such as: HH:mm");
             }
+        }
+
+        private void Auto_Alarms_Click(object sender, RoutedEventArgs e)
+        {
+            Notifier.SetUpAutos(user.Medicines);
+        }
+        private void Add_Alarm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Delete_Alarm_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

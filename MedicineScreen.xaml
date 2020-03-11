@@ -38,5 +38,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button x:Name="View_Alarms" Margin="20" Content="View Alarms" Background="Aqua" FontSize="30" Click="View_Alarm_Click" Grid.Row="1" VerticalAlignment="Bottom" Height="100" Width="200" />
     </Grid>
 </Page>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,7 +14,7 @@ namespace Pill_Popper.Models
 {
     public class Notifier
     {
-        private static List<MedAlarm> autoAlarms = new List<MedAlarm>();
+        private static ObservableCollection<MedAlarm> alarms = new ObservableCollection<MedAlarm>();
         private static DispatcherTimer timer = new DispatcherTimer();
         public static void Notify(String message, String img)
         {
@@ -35,35 +37,70 @@ namespace Pill_Popper.Models
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
-        public static void setUpAutos(List<Medication> meds)
+        public static void SetUpAutos(ObservableCollection<Medication> meds)
         {
             foreach (Medication medication in meds)
             {
-                int timeBtwnDose = medication.dosagePDay / 24;
-                for (int i = 0; i <= 24; i += timeBtwnDose)
+                int timeBtwnDose = 24 / medication.dosagePDay;
+                for (int i = 0 + timeBtwnDose; i <= 24; i += timeBtwnDose)
                 {
-                    autoAlarms.Add(new MedAlarm($"{timeBtwnDose}:00", medication));
+                    int a = i;
+                    string afterPiece = "am";
+                    if (i > 12)
+                    {
+                        a = i - 12;
+                        afterPiece = "pm";
+                    }
+                    alarms.Add(new MedAlarm($"{a}:00 {afterPiece}", medication.name, medication.qtyPDose));
                 }
+            }
+            foreach (MedAlarm alarm in alarms)
+            {
+                Debug.WriteLine($"It will ring at {alarm.GetTimeToTake()}");
             }
         }
 
-        public static void startTimer()
+        public static void setupTimer()
         {
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMinutes(1);
             timer.Tick += checkIfNotify;
         }
 
+        public static void stopTimer()
+        {
+            timer.Stop();
+        }
+        public static void startTimer()
+        {
+            timer.Start();
+        }
+
         public static void checkIfNotify(object sender, object e)
         {
-            foreach(MedAlarm alarm in autoAlarms)
+            Debug.WriteLine("checked");
+            foreach (MedAlarm alarm in alarms)
             {
                 if (alarm.GetTimeToTake() == DateTime.Now.ToLocalTime().ToString("HH:mm"))
                 {
-                    Medication med = alarm.GetMedToTake();
-                    Notify($"It's time to take {med.qtyPDose} of your {med.name}!", "Medicine Logo Transparent");
+                    Notify($"It's time to take {alarm.GetNumToTake()} of your {alarm.GetMedName()}!", "Medicine Logo Transparent");
                 }
             }
+        }
+
+        public static void clearAlarms()
+        {
+            alarms.Clear();
+        }
+
+        public static void deleteAlarm(MedAlarm alarm)
+        {
+            alarms.Remove(alarm);
+        }
+
+        public static void addAlarm(MedAlarm alarm)
+        {
+            alarms.Add(alarm);
         }
     }
 }

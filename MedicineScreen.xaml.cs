@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Data.Xml.Dom;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,12 +40,13 @@ namespace Pill_Popper
             }
             base.OnNavigatedTo(e);
             medList.ItemsSource = user.Medicines;
+            Notifier.setupTimer();
+            Notifier.startTimer();
         }
 
-        public List<Medication> getUserMeds()
+        private void View_Alarm_Click(object sender, RoutedEventArgs e)
         {
-            return user.Medicines;
+            this.Frame.Navigate(typeof(NotificationsScreen), user);
         }
-
     }
 }

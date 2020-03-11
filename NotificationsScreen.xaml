@@ -13,14 +13,32 @@
             <RowDefinition Height="20*"/>
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
-        <Grid Background="#FF3FFFE1">
+        <Grid Background="#FF3FFFE1"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="45*"/>
                 <ColumnDefinition Width="75*"/>
             </Grid.ColumnDefinitions>
-
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" Text="Pill Popper" TextWrapping="NoWrap"  VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="70*"/>
             <Image Grid.Column="0" Source="{StaticResource ResourceKey=Logo_Transparent}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5,5,5,5"/>
         </Grid>
+
+        <ListView x:Name="alarmList" Grid.Row="1" Width="1500" Background="AliceBlue">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="Name: " />
+                        <TextBlock Text="{Binding name}" FontWeight="Bold" />
+                        <TextBlock Text="Amount Per Dosage: " />
+                        <TextBlock Text="{Binding qtyPDose}" FontWeight="Bold" />
+                        <TextBlock Text="Time To Take: " />
+                        <TextBlock Text="{Binding time}" FontWeight="Bold" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="Auto_Alarms" Margin="20" Content="Add Defaults" Background="Aqua" FontSize="30" Grid.Row="1" VerticalAlignment="Bottom" Height="100" Width="400" Click="Auto_Alarms_Click" />
+        <Button x:Name="Add_Alarm"  Margin="20" Content="Add Alarm" Background="Aqua" FontSize="30" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100" Width="400" Click="Add_Alarm_Click" />
+        <Button x:Name="Delete_Alarm"  Margin="20" Content="Delete Alarm" Background="Aqua" FontSize="30" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="100" Width="400" Click="Delete_Alarm_Click" />
+
     </Grid>
 </Page>

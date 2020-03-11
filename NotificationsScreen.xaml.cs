@@ -25,7 +25,7 @@ namespace Pill_Popper
     public sealed partial class NotificationsScreen : Page
     {
         private User user;
-        private static List<MedAlarm> alarms = new List<MedAlarm>();
+
 
         public NotificationsScreen()
         {
@@ -36,7 +36,7 @@ namespace Pill_Popper
         {
             base.OnNavigatedTo(e);
             user = (User) e.Parameter;
-            alarmList.ItemsSource = alarms;
+            alarmList.ItemsSource = user.alarms;
         }
 
         private void Auto_Alarms_Click(object sender, RoutedEventArgs e)

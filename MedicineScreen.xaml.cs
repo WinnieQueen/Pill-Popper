@@ -29,6 +29,7 @@ namespace Pill_Popper
     /// </summary>
     public sealed partial class MedicineScreen : Page
     {
+        private bool deleting = false;
         Windows.Storage.StorageFolder localFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
         User user = new User();
         public MedicineScreen()
@@ -51,7 +52,7 @@ namespace Pill_Popper
         {
             this.Frame.Navigate(typeof(NotificationsScreen), user);
         }
-        
+
         private void addMedicine_Click(object sender, RoutedEventArgs e)
         {
             medPopup.IsOpen = true;
@@ -92,9 +93,9 @@ namespace Pill_Popper
             var jsonContent = await Windows.Storage.FileIO.ReadTextAsync(jsonFile);
             List<User> users = JsonConvert.DeserializeObject<List<User>>(jsonContent);
 
-            for(int u = 0; u < users.Count; u++)
+            for (int u = 0; u < users.Count; u++)
             {
-                if(users[u].Name.Equals(user.Name))
+                if (users[u].Name.Equals(user.Name))
                 {
 
                     users[u] = user;
@@ -111,15 +112,37 @@ namespace Pill_Popper
 
         private void medList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Medication selected = (Medication) e.ClickedItem;
-            //user.Medicines[selected].takeMed();
-            selected.takeMed();
-            for(int i = 0; i < user.Medicines.Count; i++ )
+            Medication selected = (Medication)e.ClickedItem;
+            if (deleting)
             {
-                if(user.Medicines[i].name == selected.name)
+                user.Medicines.Remove(selected);
+            }
+            else
+            {
+                //user.Medicines[selected].takeMed();
+                selected.takeMed();
+                for (int i = 0; i < user.Medicines.Count; i++)
                 {
-                    user.Medicines[i] = selected;
+                    if (user.Medicines[i].name == selected.name)
+                    {
+                        user.Medicines[i] = selected;
+                    }
                 }
+            }
+        }
+
+        private void Delete_Med_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            if (deleting)
+            {
+                deleting = false;
+                b.Content = "Delete Meds";
+            }
+            else
+            {
+                deleting = true;
+                b.Content = "Cancel";
             }
         }
     }

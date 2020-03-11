@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pill_Popper
 {
-    class Medication
+    public class Medication
     {
         public string name { get; set; }
         public int dosagePDay { get; set; }

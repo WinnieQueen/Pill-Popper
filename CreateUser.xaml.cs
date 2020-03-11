@@ -91,5 +91,12 @@ namespace Pill_Popper
             RadioButton rb = sender as RadioButton;
             //m.dosageType = Enum.Parse(Medication.DOSAGETYPE, rb.Tag.ToString());
         }
+
+
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

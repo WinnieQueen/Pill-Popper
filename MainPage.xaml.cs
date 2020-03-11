@@ -2,16 +2,18 @@
 using Pill_Popper.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -43,7 +45,7 @@ namespace Pill_Popper
                 Windows.Storage.StorageFile jsonFile = await localFolder.GetFileAsync("PillPopperUsers.json");
                 var jsonContent = await Windows.Storage.FileIO.ReadTextAsync(jsonFile);
                 users = JsonConvert.DeserializeObject<List<User>>(jsonContent);
-                if(users != null )
+                if (users != null)
                 {
                     PutOutUsers(users);
                 }
@@ -55,7 +57,7 @@ namespace Pill_Popper
             int amountOfUsers = users.Count;
             int[] primes = { 1, 3, 5 };
 
-            if(amountOfUsers > 5)
+            if (amountOfUsers > 5)
             {
                 amountOfUsers = 5;
             }
@@ -102,5 +104,7 @@ namespace Pill_Popper
         {
             this.Frame.Navigate(typeof(CreateUser));
         }
+
+
     }
 }

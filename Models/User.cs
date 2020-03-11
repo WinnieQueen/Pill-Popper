@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pill_Popper.Models
 {
-    class User
+    public class User
     {
 
 		private ObservableCollection<Medication> medicines = new ObservableCollection<Medication>();

@@ -1,12 +1,13 @@
-﻿using Pill_Popper.Models;
+﻿using Newtonsoft.Json;
+using Pill_Popper.Models;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,34 +23,33 @@ namespace Pill_Popper
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class NotificationsScreen : Page
+    public sealed partial class CreateAlarmPage : Page
     {
-        private User user;
-        private static List<MedAlarm> alarms = new List<MedAlarm>();
-
-        public NotificationsScreen()
+        public CreateAlarmPage()
         {
             this.InitializeComponent();
         }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            user = (User) e.Parameter;
-            alarmList.ItemsSource = alarms;
         }
 
-        private void Auto_Alarms_Click(object sender, RoutedEventArgs e)
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            Notifier.SetUpAutos(user.Medicines);
+            try
+            {
+                int q = int.Parse(quantity.Text);
+                DateTime.Parse(time.Text);
+                Notifier.addAlarm(new MedAlarm(time.Text, name.Text, q));
+                this.Frame.GoBack();
+            }
+            catch (Exception E)
+            {
+            }
         }
-        private void Add_Alarm_Click(object sender, RoutedEventArgs e)
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CreateAlarmPage));
-        }
-        private void Delete_Alarm_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.Frame.GoBack();
         }
     }
 }

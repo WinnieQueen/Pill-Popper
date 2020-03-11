@@ -12,23 +12,29 @@ namespace Pill_Popper
     public class MedAlarm
     {
         private DateTime timeToTake = new DateTime();
-        private Medication medToTake = new Medication();
+        private String name;
+        private int numToTake;
 
-        public MedAlarm(string time, Medication med)
+        public MedAlarm(string time, string medName, int quantity)
         {
             timeToTake = DateTime.Parse(time);
-            medToTake = new Medication();
+            name = medName;
+            numToTake = quantity;
         }
 
         public string GetTimeToTake()
         {
-            return timeToTake.ToString("HH:mm");
+            return timeToTake.ToString("HH:mm tt");
         }
 
-        public Medication GetMedToTake()
+        public string GetMedName()
         {
-            return medToTake;
+            return name;
         }
 
+        public int GetNumToTake()
+        {
+            return numToTake;
+        }
     }
 }

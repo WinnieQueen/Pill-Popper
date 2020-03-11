@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Data.Xml.Dom;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 using Windows.UI.Popups;
 using Newtonsoft.Json;
 
@@ -42,8 +43,16 @@ namespace Pill_Popper
             }
             base.OnNavigatedTo(e);
             medList.ItemsSource = user.Medicines;
+            Notifier.setupTimer();
+            Notifier.startTimer();
         }
 
+
+        private void View_Alarm_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(NotificationsScreen), user);
+        }
+        
         private void addMedicine_Click(object sender, RoutedEventArgs e)
         {
             medPopup.IsOpen = true;
@@ -94,11 +103,5 @@ namespace Pill_Popper
             }
             await Windows.Storage.FileIO.WriteTextAsync(jsonFile, JsonConvert.SerializeObject(users));
         }
-
-        //public ObservableCollection<Medication> getUserMeds()
-        //{
-        //    return user.Medicines;
-        //}
-
     }
 }

@@ -46,6 +46,7 @@ namespace Pill_Popper
             Notifier.setupTimer();
             Notifier.startTimer();
             Notifier.setUser(user);
+            Notifier.checkMedQuantities();
         }
 
 

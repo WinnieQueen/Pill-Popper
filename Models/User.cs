@@ -14,6 +14,11 @@ namespace Pill_Popper.Models
 		private String name;
 		public ObservableCollection<MedAlarm> alarms = new ObservableCollection<MedAlarm>();
 
+		public ObservableCollection<MedAlarm> Alarms
+		{
+			get { return alarms; }
+			set { alarms = value; }
+		}
 		public ObservableCollection<Medication> Medicines
 		{
 			get { return medicines; }

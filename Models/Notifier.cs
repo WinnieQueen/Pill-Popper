@@ -56,6 +56,37 @@ namespace Pill_Popper.Models
             }
         }
 
+        public static void InitialSetup(User user)
+        {
+            Notifier.setupTimer();
+            Notifier.startTimer();
+            Notifier.setUser(user);
+            Notifier.checkMedQuantities();
+        }
+
+        public static void checkMedQuantities()
+        {
+            bool medsAreFull = false;
+            foreach (Medication med in currentUser.Medicines)
+            {
+                int daysLeft = med.quantity - (med.qtyPDose * med.dosagePDay);
+                if (daysLeft == 7)
+                {
+                    Notify($"You have a week's worth of {med.name} left!", "Worried Medicine");
+                } else if (daysLeft < 7)
+                {
+                    Notify($"You have less than a week's worth of {med.name} left! Get some more!", "Dead Medicine");
+                } else
+                {
+                    medsAreFull = true;
+                }
+            }
+            if(medsAreFull)
+            {
+                Notify("All your meds are lookin good!", "Content Medicine");
+            }
+        }
+
         public static void setUser(User user)
         {
             currentUser = user;

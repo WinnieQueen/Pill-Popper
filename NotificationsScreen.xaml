@@ -29,9 +29,9 @@
                         <TextBlock Text="Name: " />
                         <TextBlock Text="{Binding name}" FontWeight="Bold" />
                         <TextBlock Text="Amount Per Dosage: " />
-                        <TextBlock Text="{Binding qtyPDose}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding numToTake}" FontWeight="Bold" />
                         <TextBlock Text="Time To Take: " />
-                        <TextBlock Text="{Binding time}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding timeToTake}" FontWeight="Bold" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

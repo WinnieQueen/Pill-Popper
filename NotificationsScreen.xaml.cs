@@ -36,7 +36,7 @@ namespace Pill_Popper
         {
             base.OnNavigatedTo(e);
             user = (User) e.Parameter;
-            alarmList.ItemsSource = alarms;
+            alarmList.ItemsSource = user.alarms;
         }
 
         private void Auto_Alarms_Click(object sender, RoutedEventArgs e)

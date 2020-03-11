@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pill_Popper.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,27 @@ namespace Pill_Popper
     /// </summary>
     public sealed partial class MedicineScreen : Page
     {
+        User user = new User();
         public MedicineScreen()
         {
             this.InitializeComponent();
+        }
+
+
+
+
+
+
+
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter != null)
+            {
+                user = (User) e.Parameter;
+            }
+
+            base.OnNavigatedTo(e);
         }
     }
 }

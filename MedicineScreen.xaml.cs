@@ -31,7 +31,6 @@ namespace Pill_Popper
         {
             this.InitializeComponent();
         }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.Parameter != null)
@@ -39,6 +38,7 @@ namespace Pill_Popper
                 user = (User)e.Parameter;
             }
             base.OnNavigatedTo(e);
+            medList.ItemsSource = user.Medicines;
         }
 
         public List<Medication> getUserMeds()

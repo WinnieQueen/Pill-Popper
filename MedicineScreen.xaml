@@ -36,7 +36,7 @@
                 <Button x:Name="Save" HorizontalAlignment="Center" Content="Save" Margin="0,17,0,0" Click="Save_Click"/>
             </StackPanel>
         </Popup>
-        <ListView x:Name="medList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" RequestedTheme="Light" Width="1500">
+        <ListView IsItemClickEnabled="True" ItemClick="medList_ItemClick" x:Name="medList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" RequestedTheme="Light" Width="1500">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -53,4 +53,5 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button x:Name="View_Alarms" Margin="20" Content="View Alarms" Background="Aqua" FontSize="30" Click="View_Alarm_Click" Grid.Row="1" VerticalAlignment="Bottom" Height="100" Width="200" />
+    </Grid>
 </Page>

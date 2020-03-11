@@ -108,5 +108,19 @@ namespace Pill_Popper
             Notifier.stopTimer();
             this.Frame.Navigate(typeof(MainPage));
         }
+
+        private void medList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Medication selected = (Medication) e.ClickedItem;
+            //user.Medicines[selected].takeMed();
+            selected.takeMed();
+            for(int i = 0; i < user.Medicines.Count; i++ )
+            {
+                if(user.Medicines[i].name == selected.name)
+                {
+                    user.Medicines[i] = selected;
+                }
+            }
+        }
     }
 }

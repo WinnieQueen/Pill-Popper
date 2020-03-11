@@ -21,5 +21,9 @@ namespace Pill_Popper
         {
             quantity -= dosage;
         }
+        public override string ToString()
+        {
+            return this.name + " " + this.dosage + " " + this.dosageType + " " + this.quantity;
+        }
     }
 }

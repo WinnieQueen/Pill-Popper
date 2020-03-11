@@ -50,13 +50,13 @@
                 <TextBlock TextAlignment="Center" HorizontalAlignment="Right" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Snap ITC" FontSize="20" FontWeight="Bold" Margin="0,27,16,0" Height="30" Width="255"/>
                 <TextBox x:Name="NameInput" Grid.Row="1" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,10,0,0" FontFamily="Snap ITC" FontSize="20" Width="280" Height="46"/>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="Medicine Name" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="25"/>
-                <TextBox Grid.Column="1" x:Name="m_Name" HorizontalAlignment="Center" Grid.Row="1" Text="" Width="280" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Margin="0,10,0,0"/>
-                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="Quantity Owned" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="25" SelectionChanged="TextBlock_SelectionChanged"/>
-                <TextBox x:Name="m_Dosage" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" Text="" Width="258" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,10,0,0" Height="46"/>
+                <TextBox Grid.Column="1" x:Name="m_Name" HorizontalAlignment="Center" Grid.Row="1" Text="" Width="280" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Margin="0,10,0,0" FontFamily="Snap ITC"/>
+                <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="Quantity Owned" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="25"/>
+                <TextBox x:Name="m_qty" Grid.Column="2" HorizontalAlignment="Left" Grid.Row="1" Text="" Width="258" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,10,0,0" Height="46" FontFamily="Snap ITC"/>
                 <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="Doses per Day" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="30"/>
-                <TextBox x:Name="m_qty" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" Text="" Width="86" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,17,0,0"/>
+                <TextBox x:Name="m_DosesPDay" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" Text="" Width="86" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,17,0,0" FontFamily="Snap ITC"/>
                 <TextBlock Grid.Column="4" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Snap ITC" FontSize="30" Margin="0,9,0,0" Grid.RowSpan="2" Text="Quantity per dose"/>
-                <TextBox x:Name="m_qty_doses" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="1" Text="" Width="86" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,17,0,0"/>
+                <TextBox x:Name="m_qty_doses" Grid.Column="4" HorizontalAlignment="Center" Grid.Row="1" Text="" Width="86" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,17,0,0" FontFamily="Snap ITC"/>
 
 
             </Grid>

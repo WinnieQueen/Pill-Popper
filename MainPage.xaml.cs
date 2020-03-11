@@ -1,16 +1,19 @@
-﻿using Pill_Popper.Models;
+﻿using Newtonsoft.Json;
+using Pill_Popper.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -36,22 +39,25 @@ namespace Pill_Popper
         private async void getUsers()
         {
             //Check if file exists
-            if (File.Exists(localFolder.Path + "\\PillPopperUsers.txt"))
+            if (File.Exists(localFolder.Path + "\\PillPopperUsers.json"))
             {
                 //Get the File
-                Windows.Storage.StorageFile sampleFile = await localFolder.GetFileAsync("PillPopperUsers.txt");
-                String fileContent = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-                PutOutUsers(fileContent);
+                Windows.Storage.StorageFile jsonFile = await localFolder.GetFileAsync("PillPopperUsers.json");
+                var jsonContent = await Windows.Storage.FileIO.ReadTextAsync(jsonFile);
+                users = JsonConvert.DeserializeObject<List<User>>(jsonContent);
+                if (users != null)
+                {
+                    PutOutUsers(users);
+                }
             }
         }
 
-        private void PutOutUsers(String fileContent)
+        private void PutOutUsers(List<User> users)
         {
-            string[] users = fileContent.Split("-");
-            int amountOfUsers = (users.Length-1) / 2;
+            int amountOfUsers = users.Count;
             int[] primes = { 1, 3, 5 };
 
-            if(amountOfUsers > 5)
+            if (amountOfUsers > 5)
             {
                 amountOfUsers = 5;
             }
@@ -59,7 +65,8 @@ namespace Pill_Popper
             for (int i = 0; i < amountOfUsers; i++)
             {
                 HyperlinkButton hyperBtn = new HyperlinkButton();
-                hyperBtn.Content = users[i * 2];
+
+                hyperBtn.Content = users[i].Name;
                 hyperBtn.VerticalAlignment = VerticalAlignment.Stretch;
                 hyperBtn.HorizontalAlignment = HorizontalAlignment.Stretch;
                 hyperBtn.Click += Login_Click;
@@ -68,6 +75,7 @@ namespace Pill_Popper
                 hyperBtn.Background = new SolidColorBrush(Color.FromArgb(255, (byte)(i * 25), (byte)(i * 25), (byte)(i * 25)));
                 hyperBtn.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 63, 255, 225));
                 hyperBtn.BorderThickness = new Thickness(2);
+                hyperBtn.Name = i.ToString();
 
                 if (i > 2)
                 {
@@ -86,12 +94,17 @@ namespace Pill_Popper
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MedicineScreen));
+            HyperlinkButton hyperBtn = sender as HyperlinkButton;
+            int index = Int32.Parse(hyperBtn.Name);
+            User u = users[index];
+            this.Frame.Navigate(typeof(MedicineScreen), u);
         }
 
         private void Add_User_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(CreateUser));
         }
+
+
     }
 }
